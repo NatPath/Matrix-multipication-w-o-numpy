@@ -1,5 +1,4 @@
 from functools import reduce
-import numpy
 
 
 def mat_multi(matrix_1, matrix_2):
@@ -59,4 +58,3 @@ if __name__ == "__main__":
     matrix_1 = [[2, 3, 4, 5, 0], [4, 4, 5, 1, 1], [4, 4, 5, 1, 1], [1, 3, 4, 0, 1]]
     matrix_2 = [[1, 4, 3], [1, 4, 2]]
     print("my matrix: ", mat_multi(matrix_1, matrix_2))
-    print("numpy matrix: ", numpy.dot(matrix_1, matrix_2))
