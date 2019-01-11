@@ -1,4 +1,6 @@
+#!/usr/bin/python3
 from functools import reduce
+import sys
 
 
 def mat_multi(matrix_1, matrix_2):
@@ -54,7 +56,46 @@ def vector_addition(vector1, vector2):
     return new_vec
 
 
+def matrix_rank(matrix):
+    if len(matrix) == len(matrix[0]):
+        return len(matrix)
+    else:
+        return max(len(matrix), len(matrix[0]))
+
+
+def determinant(matrix):
+    def deter_of_2b2():
+        a = matrix[0][0]
+        b = matrix[1][0]
+        c = matrix[0][1]
+        d = matrix[1][1]
+        deter = a * d - b * c
+        return deter
+
+    def deter_of_3b3():
+        a = matrix[0][0]
+        b = matrix[1][0]
+        c = matrix[2][0]
+        d = matrix[0][1]
+        e = matrix[1][1]
+        f = matrix[2][1]
+        g = matrix[0][2]
+        h = matrix[1][2]
+        i = matrix[2][2]
+        return 0
+
+    mat_rank = matrix_rank(matrix)
+    if mat_rank == 2:
+        return deter_of_2b2()
+    if mat_rank == 3:
+        return deter_of_3b3()
+
+
 if __name__ == "__main__":
-    matrix_1 = [[2, 3, 4, 5, 0], [4, 4, 5, 1, 1], [4, 4, 5, 1, 1], [1, 3, 4, 0, 1]]
-    matrix_2 = [[1, 4, 3], [1, 4, 2]]
-    print("my matrix: ", mat_multi(matrix_1, matrix_2))
+    # matrix_1 = [[2, 3, 4, 5, 0], [4, 4, 5, 1, 1], [4, 4, 5, 1, 1], [1, 3, 4, 0, 1]]
+    # matrix_2 = [[1, 4, 3], [1, 4, 2]]
+    # print (sys.argv[1])
+    matrix = [[2, 2], [3, 1]]
+    print("the determinant of the matrix is : {}".format(determinant(matrix)))
+    print(matrix_rank(matrix))
+    # print("my matrix: ", mat_multi(matrix_1, matrix_2))
